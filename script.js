@@ -13,8 +13,8 @@ function validateSignInForm() {
 }
 
 // Predefined credentials for demonstration purposes
-const validEmail = "user@example.com";
-const validPassword = "password123";
+const validEmail = "Chinnamahi905@gmail.com";
+const validPassword = "Mahesh@939168";
 
 document.getElementById("signin-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent form submission
