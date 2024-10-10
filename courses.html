@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - HelloPython</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function checkCredentials() {
+            const id = document.getElementById('id').value;
+            const password = document.getElementById('password').value;
+
+            const validID = 'yourID';
+            const validPassword = 'yourPassword';
+
+            if (id === validID && password === validPassword) {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('courseContent').style.display = 'block';
+            } else {
+                alert('Invalid ID or Password');
+            }
+        }
+
+        function toggleVideos(section) {
+            const videos = document.getElementById(section);
+            videos.style.display = videos.style.display === "block" ? "none" : "block";
+        }
+
+        function showVideo(videoUrl) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.src = videoUrl;
+            videoPlayer.style.display = 'block';
+            videoPlayer.load(); // Reload the video to play the new one
+            videoPlayer.play(); // Autoplay the video
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <a href="#">HelloPython.com</a>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="courses.html"><i class="fas fa-book"></i> Courses</a></li>
+            <li><a href="roadmap.html"><i class="fas fa-map"></i> Roadmap</a></li>
+            <li><a href="help.html"><i class="fas fa-question-circle"></i> Need Help</a></li>
+            <li><a href="signin.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html">HelloPython.com</a>
+            </div>
+        </header>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="sign-in-container">
+            <h2>Login to Access Courses</h2>
+            <label for="id">Enter ID:</label>
+            <input type="text" id="id" placeholder="Enter ID" required>
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button onclick="checkCredentials()">Login</button>
+        </div>
+
+        <!-- Video Display Section -->
+        <div class="video-display">
+            <!-- Video element for local playback -->
+            <video id="videoPlayer" width="1060" height="615" controls style="display:none;">
+                <source id="videoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Courses Section (Hidden by default) -->
+        <main class="content" id="courseContent" style="display: none;">
+            <h1>Our Courses</h1>
+            <div class="course-list">
+                <!-- Video Sections -->
+                <div class="video-section">
+                    <h3 onclick="toggleVideos('basicsVideos')">>BASICS</h3>
+                    <div id="basicsVideos" class="video-list" style="display: none;">
+                        <ul>
+                            <!-- Local video file paths -->
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video1.mp4')"> Basics Video 1</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video1.mp4')">1 Python Tutorial for Beginners</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video2.mp4')">2 Python Installation   Pycharm</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video3.mp4')">3 Getting Started With Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video4.mp4')">4 Variables In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video5.mp4')">5 List In Python </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video6.mp4')">6 Tuple   Set In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video7.mp4')">7 Python Set Path In Windows And Help</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video8.mp4')">8 Python Editor   Sublime Text </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video9.mp4')">9 More On Variables In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video10.mp4')">10 Data Types In Python </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video11.mp4')">11 Operators In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video12.mp4')">12 Number System Conversion In Python </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video13.mp4')">13 Idle Previous Command   Clear Screen</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video14.mp4')">14 Python Bitwise Operators</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video15.mp4')">15 Import Math Functions In Python </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video16.mp4')">16 Working With Pycharm   Run   Debug   Trace   Py File </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video17.mp4')">17 Swap 2 Variables In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video18.mp4')">18 User Input In Python   Command Line Input</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video19.mp4')">19 </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video20.mp4')">20 While Loop In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video21.mp4')">21For Loop In Python </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video22.mp4')">22 Break Continue Pass In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video22.1.mp4')">22.1 Break Vs Continue Vs Pass In Python Part 2</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video23.mp4')">23 Printing Patterns In Python </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video24.mp4')">24 </a>For Else In Python</li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video25.mp4')">25 Prime Number In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video26.mp4')">26 Array In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video27.mp4')">27 Array Values From User In Python   Search In Array</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video28.mp4')">28 Why Numpy  Installing Numpy In Pycharm</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video29.mp4')">29 Ways Of Creating Arrays In Numpy </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video30.mp4')">30  Copying An Array In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video31.mp4')">31 Working With Matrix In Python </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video32.mp4')">32 Functions In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video33.mp4')">33 Function Arguments In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video34.mp4')">34 Types Of Arguments In Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video35.mp4')">35 Keyworded Variable Length Arguments In Python    Kwargs</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video36.mp4')">36 Global Keyword In Python   Global Vs Local Variable</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video37.mp4')">37 Pass List To A Function In Python</a></li>
+                        </ul>
+                    </div>
+
+                    <h3 onclick="toggleVideos('advancedVideos')">>ADVANCED</h3>
+                    <div id="advancedVideos" class="video-list" style="display: none;">
+                        <ul>
+                            <!-- Local video file paths -->
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video38.mp4')">38 Fibonacci Sequence </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video39.mp4')"> 39 Factorial</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video40.mp4')"> 40 Recursion</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video.41mp4')"> 41 Factorial Using Recursion</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video.42mp4')"> 42 Anonymous Functions _ Lambda</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video43.mp4')"> 43 Filter Map Reduce</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video44.mp4')"> 44 Decorators</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video45.mp4')"> 45 Modules</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video46.mp4')"> 46 Special Variable __name__                           </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video47.mp4')"> 47 Special Variable __name__ part 2                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video48.mp4')"> 48 Object Oriented Programming _ Introduction                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video49.mp4')"> 49 Class and Object                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video50.mp4')"> 50 __init__ method                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video51.mp4')"> 51 Constructor, Self and Comparing Objects                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video52.mp4')"> 52 Types of Variables                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video53.mp4')"> 53 Types of Methods                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video54.mp4')"> 54 Inner class                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video55.mp4')"> 55 Inheritance                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video56.mp4')"> 56 Constructor in Inheritance                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video57.mp4')"> 57 Introduction to Polymorphism                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video58.mp4')"> 58 Duck Typing                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video59.mp4')"> 59 Operator Overloading _ Polymorphism                         </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video60.mp4')"> 60 Method Overloading and Method Overriding                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video61.mp4')"> 61 Iterator                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video62.mp4')"> 62 Generators                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video63.mp4')"> 63 Exception Handling                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video64.mp4')"> 64 MultiThreading                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video65.mp4')"> 65 File handling                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video66.mp4')"> 66 Comments                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video67.mp4')"> 67 Python is Python Compiled or Interpreted Language_                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video68.mp4')"> 68 Python Tutorial for Beginners 68                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video69.mp4')"> 69 Binary Search Using Python                            </a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video70.mp4')"> 70 Bubble Sort in python _ List Sort</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video.71mp4')"> 71 Selection Sort using Python</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video72.mp4')"> 72 MySQL Workbench Setup _ Python Database Connection</a></li>
+                            <li><a href="javascript:void(0);" onclick="showVideo('videos/video73.mp4')"> 73 Python Database Connection _ MySQL</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <p>Made with ❤️ in India | &copy; 2024 HelloPython. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

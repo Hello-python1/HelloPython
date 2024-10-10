@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page with Scanner, UTIR Number, and Popup</title>
+    <link rel="stylesheet" href="payment.css">
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <div class="banner">
+        <h1>Secure Payment Portal</h1>
+    </div>
+
+    <div class="payment-container">
+        <h2>Payment Information</h2>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="cardName">Cardholder Name</label>
+                <input type="text" id="cardName" placeholder="Name on Card" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="16" required>
+            </div>
+
+            <div class="form-group">
+                <label for="expiryDate">Expiration Date</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="Enter Amount" required>
+            </div>
+
+            <button type="submit" class="pay-btn">Make Payment</button>
+        </form>
+
+        <p id="error-message"></p>
+
+        <div class="scanner-section">
+            <h1>OR</h1> <br>
+            <h2>Scan QR Code</h2>
+            <div id="reader">
+                <img src="QR.jpg" alt="QR Code" class="qr-image">
+            </div> <!-- Scanner Container -->
+
+            <div class="form-group">
+                <label for="utirNumber">UTIR Number</label>
+                <input type="text" id="utirNumber" placeholder="Enter UTIR Number after Scan Payment" required>
+            </div>
+
+            <button id="submitBtn" class="pay-btn">Submit Payment</button>
+            <p id="scan-result"></p>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
