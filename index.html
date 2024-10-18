@@ -47,6 +47,9 @@
                 </ul>
                 <p class="price">₹6999 + GST (50% OFF)</p>
                 <a href="payment.html" class="enroll-button">ENROLL TODAY</a>
+
+                <!-- Timer -->
+                <div id="timer" class="timer"></div> <!-- Timer placed here -->
             </div>
         </main>
 
@@ -61,7 +64,34 @@
             </div>
         </footer>
     </div>
-    <script src="script.js" defer></script> <!-- Ensure script is linked -->
 
+    <!-- Insert the timer script directly here -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set the countdown end time for 37 hours from now (37 * 60 * 60 * 1000 milliseconds)
+            const countdownEndTime = new Date().getTime() + 37 * 60 * 60 * 1000;
+        
+            // Update the countdown every 1 second
+            const interval = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = countdownEndTime - now;
+        
+                // Time calculations for total hours, minutes, and seconds
+                const totalHours = Math.floor(distance / (1000 * 60 * 60)); // Total hours left
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Minutes left
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Seconds left
+        
+                // Display the result in the timer div
+                document.getElementById("timer").innerHTML = `Hurry! Offer expires in: ${totalHours}h ${minutes}m ${seconds}s`;
+        
+                // If the countdown is finished, clear the interval and show expiration message
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.getElementById("timer").innerHTML = "The offer has expired!";
+                }
+            }, 1000);
+        });
+        
+    </script>
 </body>
 </html>
