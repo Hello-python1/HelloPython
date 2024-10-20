@@ -68,35 +68,31 @@
     <!-- Timer Script for 3-Day Countdown -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Get the current date and time
-            const now = new Date().getTime();
+        // Set the fixed countdown end time (72 hours from October 20, 2024, 5:27 PM)
+        const countdownEndTime = new Date("October 23, 2024 17:27:00").getTime();
 
-            // Add 3 days (72 hours) in milliseconds
-            const threeDaysInMillis = 3 * 24 * 60 * 60 * 1000;
+        // Update the countdown every 1 second
+        const interval = setInterval(function () {
+            const currentTime = new Date().getTime(); // Get the current time
+            const distance = countdownEndTime - currentTime; // Calculate remaining time
 
-            // Calculate the countdown end time (3 days from now)
-            const countdownEndTime = now + threeDaysInMillis;
+            // Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Days left
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Hours left
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Minutes left
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Seconds left
 
-            // Update the countdown every 1 second
-            const interval = setInterval(function () {
-                const currentTime = new Date().getTime();
-                const distance = countdownEndTime - currentTime;
+            // Display the result in the "timer" element
+            document.getElementById("timer").innerHTML = 
+                `Hurry! Offer expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-                // Time calculations for total hours, minutes, and seconds
-                const totalHours = Math.floor(distance / (1000 * 60 * 60)); // Total hours left
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Minutes left
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Seconds left
-
-                // Display the result in the timer div
-                document.getElementById("timer").innerHTML = `Hurry! Offer expires in: ${totalHours}h ${minutes}m ${seconds}s`;
-
-                // If the countdown is finished, clear the interval and show expiration message
-                if (distance < 0) {
-                    clearInterval(interval);
-                    document.getElementById("timer").innerHTML = "The offer has expired!";
-                }
-            }, 1000);
-        });
+            // If the countdown is finished, clear the interval and show expiration message
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("timer").innerHTML = "The offer has expired!";
+            }
+        }, 1000); // Repeat the function every second
+    });
     </script>
 </body>
 </html>
