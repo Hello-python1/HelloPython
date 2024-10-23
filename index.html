@@ -45,7 +45,7 @@
                     <li>✅ Course Certificate</li>
                     <li>✅ Three Year Access to All Content</li>
                 </ul>
-                <p class="price">₹6859 + GST (51% OFF)</p>
+                <p class="price">₹6299 + GST (55% OFF)</p>
                 <a href="payment.html" class="enroll-button">ENROLL TODAY</a>
 
                 <!-- Timer -->
@@ -68,31 +68,32 @@
     <!-- Timer Script for 3-Day Countdown -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        // Set the fixed countdown end time (72 hours from October 20, 2024, 5:27 PM)
-        const countdownEndTime = new Date("October 23, 2024 17:27:00").getTime();
-
-        // Update the countdown every 1 second
-        const interval = setInterval(function () {
-            const currentTime = new Date().getTime(); // Get the current time
-            const distance = countdownEndTime - currentTime; // Calculate remaining time
-
-            // Time calculations for days, hours, minutes, and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Days left
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Hours left
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Minutes left
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Seconds left
-
-            // Display the result in the "timer" element
-            document.getElementById("timer").innerHTML = 
-                `Hurry! Offer expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-            // If the countdown is finished, clear the interval and show expiration message
-            if (distance < 0) {
-                clearInterval(interval);
-                document.getElementById("timer").innerHTML = "The offer has expired!";
-            }
-        }, 1000); // Repeat the function every second
-    });
+            // Set the fixed countdown end time (72 hours from October 20, 2024, 5:27 PM)
+            // Set the fixed countdown end time (7 days from October 23, 2024, 9:00 AM)
+            const countdownEndTime = new Date("November 03, 2024 09:00:00").getTime();
+    
+            // Update the countdown every 1 second
+            const interval = setInterval(function () {
+                const currentTime = new Date().getTime(); // Get the current time
+                const distance = countdownEndTime - currentTime; // Calculate remaining time
+    
+                // Time calculations for days, hours, minutes, and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Days left
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Hours left
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Minutes left
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Seconds left
+    
+                // Display the result in the "timer" element
+                document.getElementById("timer").innerHTML = 
+                    `Hurry! Offer expires in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    
+                // If the countdown is finished, clear the interval and show expiration message
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.getElementById("timer").innerHTML = "The offer has expired!";
+                }
+            }, 1000); // Repeat the function every second
+        });
     </script>
 </body>
 </html>
